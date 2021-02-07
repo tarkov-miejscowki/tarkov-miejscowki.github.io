@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Czerwony",
+        "color": "red",
+        "point": [581, 545],
+        "radius": 0,
+        "corners": [
+            [684, 492],
+            [679, 611],
+            [455, 604],
+            [460, 485]
+        ]
+    },
+    {
+        "name": "Nowa konstrukcja",
+        "color": "blue",
+        "point": [543, 2032.5],
+        "radius": 0,
+        "corners": [
+            [634, 1959],
+            [653, 2066],
+            [433, 2105],
+            [411, 2000]
+        ]
+    },
+    {
+        "name": "Górka snajperska",
+        "color": "lime",
+        "point": [1445, 2374],
+        "radius": 150
+    }
+]
