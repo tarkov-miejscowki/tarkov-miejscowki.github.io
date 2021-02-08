@@ -16,7 +16,8 @@ var newLocation = {
     data: {
         point: null, radius: null, corners: null
     },
-    dummyArea: null
+    dummyArea: null,
+    crosshairNode: null
 };
 
 newLocation.dom.pointSet.addEventListener('click', e => {
@@ -34,6 +35,8 @@ newLocation.dom.radiusSet.addEventListener('click', e => {
         return;
     }
 
+    switchCrosshairCursor();
+
     if (newLocation.requests.radius) {
         newLocation.requests.radius = false;
         newLocation.dom.radiusSet.innerHTML = 'Ustaw promień';
@@ -41,17 +44,18 @@ newLocation.dom.radiusSet.addEventListener('click', e => {
             map.removeLayer(newLocation.dummyArea);
         }
     } else {
-        newLocation.data.corners = null;
-        newLocation.dom.corners.innerHTML = 'Rogi: 0';
-
         newLocation.requests.radius = true;
         newLocation.dom.radius.innerHTML = 'Promień: 0';
         newLocation.dom.radiusSet.innerHTML = 'Zapisz promień';
+
+        newLocation.data.corners = null;
+        newLocation.dom.corners.innerHTML = 'Rogi: 0';
     }
 });
 
 newLocation.dom.cornersSet.addEventListener('click', e => {
     if(newLocation.requests.point || newLocation.requests.radius) return;
+    switchCrosshairCursor();
 
     if (newLocation.requests.corners) {
         newLocation.requests.corners = false;
@@ -61,13 +65,12 @@ newLocation.dom.cornersSet.addEventListener('click', e => {
         }
     } else {
         newLocation.requests.corners = true;
-        
-        newLocation.data.radius = 0;
-        newLocation.dom.radius.innerHTML = 'Promień: 0';
-
         newLocation.data.corners = [];
         newLocation.dom.corners.innerHTML = 'Rogi: 0';
         newLocation.dom.cornersSet.innerHTML = 'Zapisz rogi';
+
+        newLocation.data.radius = 0;
+        newLocation.dom.radius.innerHTML = 'Promień: 0';
     }
 });
 
@@ -126,4 +129,16 @@ function dummyCircle() {
         color: newLocation.dom.color.value ? newLocation.dom.color.value : 'black'
     });
     newLocation.dummyArea.addTo(map);
+}
+
+function switchCrosshairCursor() {
+    if (newLocation.crosshairNode) {
+        document.head.removeChild(newLocation.crosshairNode);
+        newLocation.crosshairNode = null;
+    } else {
+        newLocation.crosshairNode = document.createElement('style');
+        let text = document.createTextNode("*{cursor: crosshair !important;}")
+        newLocation.crosshairNode.appendChild(text);
+        document.head.appendChild(newLocation.crosshairNode);
+    }
 }
