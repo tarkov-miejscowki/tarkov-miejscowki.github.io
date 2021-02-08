@@ -12,8 +12,7 @@ function reloadFromFile(mapName, x, y) {
 
     fetch(`./locations/${currentMapInfo.name}.json`)
     .then(response => response.json())
-    .then(json => reload(json))
-    .then(() => map.on('click', e => mapOnClick(e)));
+    .then(json => reload(json));
 
     document.getElementById('maps').style.display = 'none';
 }
@@ -32,6 +31,8 @@ function reload(locations) {
     for (const location of locations) {
         addLocation(location);
     }
+
+    map.on('click', e => mapOnClick(e));
 }
 
 function addLocation(location) {
