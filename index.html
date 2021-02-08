@@ -15,6 +15,47 @@
 </head>
 <body>
     <div id="map"></div>
-    <script src="map.js"></script>
+    <div id="nav">
+        <button id="tools-switch">Edytor</button>
+        <button id="change-map">Zmień mapę</button>
+        <div id="maps">
+            <button onclick="reloadFromFile('customs', 3820, 1986)">Customs</button>
+        </div>
+    </div>
+    <div id="tools" hidden>
+        <div>
+            <span>Miejscówki:</span>
+            <ol id="locations-list"></ol>
+            <button id="list-copy">Kopiuj do schowka</button>
+            <button id="list-load">Załaduj ze schowka</button>
+        </div>
+        <div id="new-location">
+            <span>Nowa miejscówka:</span>
+            <div>
+                <span>Nazwa:</span>
+                <input type="text" name="new-location-name" id="new-location-name">
+            </div>
+            <div>
+                <span>Kolor:</span>
+                <input type="text" name="new-location-color" id="new-location-color">
+            </div>
+            <div>
+                <span id="new-location-point">Punkt: ✘</span>
+                <button id="new-location-point-set">Ustaw punkt</button>
+            </div>
+            <div>
+                <span id="new-location-radius">Promień: 0</span>
+                <button id="new-location-radius-set">Ustaw promień</button>
+            </div>
+            <div>
+                <span id="new-location-corners">Rogi: 0</span>
+                <button id="new-location-corners-set">Ustaw rogi</button>
+            </div>
+            <button id="new-location-add">Dodaj</button>
+        </div>
+    </div>
+    <script src="js/map.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/new-location.js"></script>
 </body>
 </html>
