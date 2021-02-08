@@ -61,10 +61,11 @@ newLocation.dom.cornersSet.addEventListener('click', e => {
         }
     } else {
         newLocation.requests.corners = true;
+        
         newLocation.data.radius = 0;
         newLocation.dom.radius.innerHTML = 'Promień: 0';
 
-        newLocation.data.corners = null;
+        newLocation.data.corners = [];
         newLocation.dom.corners.innerHTML = 'Rogi: 0';
         newLocation.dom.cornersSet.innerHTML = 'Zapisz rogi';
     }
