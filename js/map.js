@@ -13,8 +13,7 @@ function reloadFromFile(mapName, x, y) {
     fetch(`./locations/${currentMapInfo.name}.json`, {
         headers: {
           'Cache-Control': 'no-cache',
-          'pragma': 'no-cache',
-          'cache-control': 'no-store'
+          'pragma': 'no-cache'
         }
       })
     .then(response => response.json())
