@@ -290,7 +290,7 @@
         ]
     },
     {
-        "name": "Nowa konstrukcja",
+        "name": "Forteca",
         "color": "red",
         "point": [
             525.5,
@@ -702,7 +702,7 @@
         ]
     },
     {
-        "name": "Graficzny",
+        "name": "Szklany",
         "color": "Salmon",
         "point": [
             540.75,
@@ -1131,5 +1131,32 @@
             3279.625
         ],
         "radius": 18
+    },
+    {
+        "name": "Kebab",
+        "color": "brown",
+        "point": [
+            1476.5,
+            1960.75
+        ],
+        "radius": 0,
+        "corners": [
+            [
+                1462,
+                1945.25
+            ],
+            [
+                1493.5,
+                1948.5
+            ],
+            [
+                1490.5,
+                1976
+            ],
+            [
+                1458.5,
+                1972.5
+            ]
+        ]
     }
 ]
