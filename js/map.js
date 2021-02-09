@@ -10,7 +10,13 @@ function reloadFromFile(mapName, x, y) {
     document.getElementById("map").outerHTML = '<div id="map"></div>';
     locationsDomList.innerHTML = '';
 
-    fetch(`./locations/${currentMapInfo.name}.json`)
+    fetch(`./locations/${currentMapInfo.name}.json`, {
+        headers: {
+          'Cache-Control': 'no-cache',
+          'pragma': 'no-cache',
+          'cache-control': 'no-store'
+        }
+      })
     .then(response => response.json())
     .then(json => reload(json));
 
