@@ -10,7 +10,8 @@ function reloadFromFile(mapName, x, y) {
     document.getElementById("map").outerHTML = '<div id="map"></div>';
     locationsDomList.innerHTML = '';
 
-    fetch(`./locations/${currentMapInfo.name}.json`, {
+    const ms = Date.now();
+    fetch(`./locations/${currentMapInfo.name}.json?nocache=${ms}`, {
         headers: {
           'Cache-Control': 'no-cache',
           'pragma': 'no-cache'

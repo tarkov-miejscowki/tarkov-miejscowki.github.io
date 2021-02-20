@@ -25,6 +25,10 @@ html, body, #map {
     flex-direction: column;
 }
 
+#maps button {
+    margin-bottom: 2px;
+}
+
 #tools {
     position: absolute;
     top: 100px;
